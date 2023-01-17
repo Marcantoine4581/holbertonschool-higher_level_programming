@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'    
-print(alphabet.lower(), end = '')
+for letter in range(97, 123):
+    print("{}".format(chr(letter)), end="")
