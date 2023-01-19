@@ -8,6 +8,6 @@ if __name__ == "__main__":
     elif arg == 1:
         print("1 argument:")
     else:
-        print("{} arguments.".format(arg))
+        print("{} arguments:".format(arg))
     for i in range(arg):
         print("{}: {}".format(arg, sys.argv[i + 1]))
