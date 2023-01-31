@@ -53,3 +53,19 @@ NON NUMBERS
 	>>> add_integer("Hello", 3)
 	Traceback (most recent call last):
 	TypeError: a must be an integer
+
+The function will fail if infinity is provided.
+
+::
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+The function will fail with a NaN number.
+
+::
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
