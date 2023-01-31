@@ -31,8 +31,13 @@ We cast floats to intergers before addition is performed.
 
 ::
 
-	>>> add_integer(-100, 2)
+	>>> add_integer(-100.2, 2.3)
 	-98
+
+::
+
+	>>> add_integer(2)
+	100
 
 NON NUMBERS
 -----------
@@ -42,3 +47,9 @@ NON NUMBERS
 	>>> add_integer(2.0, "Hello")
 	Traceback (most recent call last):
 	TypeError: b must be an integer
+
+::
+
+	>>> add_integer("Hello", 3)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
