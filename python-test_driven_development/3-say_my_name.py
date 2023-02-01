@@ -5,8 +5,8 @@
 def say_my_name(first_name, last_name=""):
     """
     Args:
-        first_name (str): 
-        last_name (str):
+        first_name (str): first parameter
+        last_name (str): second parameter
 
     Raises:
         TypeError:
