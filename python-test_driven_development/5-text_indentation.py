@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """ function that prints a text with 2 new lines
-    after each of these characters: ".", "?" and ":" 
+    after each of these characters: ".", "?" and ":"
 """
+
 
 def text_indentation(text):
     """
@@ -11,7 +12,7 @@ def text_indentation(text):
     Raises:
         TypeError:
             if test is not a string.
-    
+
     Return: nothing
     """
     if not isinstance(text, str):
@@ -29,5 +30,4 @@ def text_indentation(text):
             while i < len(text) and text[i] == ' ':
                 i += 1
             continue
-        i += 1
-            
+        i += 1            
