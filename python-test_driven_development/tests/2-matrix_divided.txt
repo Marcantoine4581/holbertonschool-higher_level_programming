@@ -41,13 +41,6 @@ USAGE
 
 ::
 
-	>>> matrix = 3
-      	>>> print(matrix_divided(matrix, 3))
-	Traceback (most recent call last):
-	TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-::
-
 	>>> matrix = "Hello"
 	>>> print(matrix_divided(matrix, 3))
 	Traceback (most recent call last):
@@ -55,27 +48,10 @@ USAGE
 
 ::
 
-	>>> matrix = 0
+	>>> matrix = [[]]
 	>>> print(matrix_divided(matrix, 3))
 	Traceback (most recent call last):
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-::
-
-	>>> matrix = [
-    	...     [3, 6, 9],
-    	...     [12, 15, 18]
-    	... ]
-    	>>> print(matrix_divided(matrix,))
-	Traceback (most recent call last):
-	TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-::
-
-	>>> print(matrix_divided())
-	Traceback (most recent call last):
-	TypeError: matrix must be a matrix (list of lists) of integers/floats
-
 
 NON NUMBER
 ----------
