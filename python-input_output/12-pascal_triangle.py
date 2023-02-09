@@ -14,7 +14,7 @@ def pascal_triangle(n):
     if n <= 0:
         return []
     
-    Triangle = []
+    triangle = []
     lists = []
     for i in range(n):
         if i == 0:
