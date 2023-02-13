@@ -15,7 +15,7 @@ class Rectangle(Base):
     @property
     def width(self):
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -59,11 +59,11 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-    
+
     def area(self):
         """Calculate the area of the rectangle"""
         return(self.width * self.height)
-    
+  
     def display(self):
         """ print the rectangle with #  by taking care of x and y """
         if self.height == 0 or self.width == 0:
@@ -79,9 +79,8 @@ class Rectangle(Base):
             print(rec)
 
     def __str__(self):
-
         return("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
-        self.y, self.width, self.height))
+            self.y, self.width, self.height))
 
     def update(self, *args, **kwargs):
         """Update the Square.
@@ -120,4 +119,3 @@ class Rectangle(Base):
                     self.x = value
                 elif key == "y":
                     self.y = value
-
