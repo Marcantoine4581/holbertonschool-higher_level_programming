@@ -29,9 +29,14 @@ class TestBase_to_json_string(unittest.TestCase):
     """tests to_json_string method of Base class"""
 
     def test_to_json_string_None(self):
-
+        """Test for parameter is None"""
         json_str = Base.to_json_string(None)
         self.assertEqual(json_str, "[]")
+
+    def test_to_json_string_type(self):
+        """Test if the funtion return a string"""
+        json_str = Base.to_json_string(None)
+        self.assertEqual(type(json_str), str)
 
 if __name__ == "__main__":
     unittest.main()
