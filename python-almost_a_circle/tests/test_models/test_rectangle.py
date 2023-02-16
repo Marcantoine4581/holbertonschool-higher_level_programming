@@ -46,5 +46,19 @@ class TestRectangle(unittest.TestCase):
         self.assertRaisesRegex(
             TypeError, "y must be an integer", Rectangle, 1, 2, 3, "4")
 
+    def test_width_or_heigth_equal_zero(self):
+        self.assertRaisesRegex(
+            ValueError, "width must be > 0", Rectangle, 0, 2)
+        self.assertRaisesRegex(
+            ValueError, "height must be > 0", Rectangle, 3, 0)
+
+    def test_str_for_Rectangle(self):
+        r1 = Rectangle(10, 10, 10, 10, 20)
+        self.assertEqual(str(r1), "[Rectangle] (20) 10/10 - 10/10")
+
+    def test_area(self):
+        r = Rectangle(5, 4)
+        self.assertEqual(r.area(), 20)
+
 if __name__ == "__main__":
     unittest.main()
