@@ -36,5 +36,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 3)
         self.assertEqual(r.y, 4)
 
+    def test_type_error_init(self):
+        self.assertRaisesRegex(
+            TypeError, "width must be an integer", Rectangle, "1", 2)
+        self.assertRaisesRegex(
+            TypeError, "height must be an integer", Rectangle, 1, "2")
+        self.assertRaisesRegex(
+            TypeError, "x must be an integer", Rectangle, 1, 2, "3")
+        self.assertRaisesRegex(
+            TypeError, "y must be an integer", Rectangle, 1, 2, 3, "4")
+
 if __name__ == "__main__":
     unittest.main()
