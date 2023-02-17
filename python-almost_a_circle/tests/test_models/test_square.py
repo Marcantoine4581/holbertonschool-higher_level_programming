@@ -34,6 +34,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.y, 3)
 
     def test_type_error_init(self):
+        """test TypeError if value is not int"""
         self.assertRaisesRegex(
             TypeError, "width must be an integer", Square, "1", 2)
         self.assertRaisesRegex(
@@ -42,8 +43,15 @@ class TestSquare(unittest.TestCase):
             TypeError, "y must be an integer", Square, 1, 2, "3")
 
     def test_size_equal_zero(self):
+        """test ValueError if value is less than or equal to zero"""
         self.assertRaisesRegex(
             ValueError, "width must be > 0", Square, 0)
+        self.assertRaisesRegex(
+            ValueError, "width must be > 0", Square, -1)
+        self.assertRaisesRegex(
+            ValueError, "x must be >= 0", Square, 1, -2)
+        self.assertRaisesRegex(
+            ValueError, "y must be >= 0", Square, 1, 2, -3)
 
     def test_str_for_Square(self):
         s1 = Square(10, 5, 7, 20)
