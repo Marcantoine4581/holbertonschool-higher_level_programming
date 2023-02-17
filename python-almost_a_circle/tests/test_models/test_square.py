@@ -6,6 +6,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 from io import StringIO
 from contextlib import redirect_stdout
+import os
 
 
 class TestSquare(unittest.TestCase):
@@ -90,6 +91,33 @@ class TestSquare(unittest.TestCase):
         s = Square(15, 5, 3, 32)
         self.assertEqual(s.to_dictionary(), {'id': 32, 'size': 15,
                                              'x': 5, 'y': 3})
+
+    def test_create(self):
+        s1 = Square(3, 5, 1, 4)
+        s2 = Square.create(**{'id': 4, 'size': 3, 'x': 5, 'y': 1})
+        self.assertEqual(str(s1), str(s2))
+
+    def test_save_to_file(self):
+        s1 = Square(10, 7, 2, 8)
+        s2 = Square(2, 4, 5, 8)
+        Square.save_to_file([s1, s2])
+        with open("Square.json", "r") as f:
+            output = f.read()
+        self.assertEqual('[{"id": 8, "size": 10, "x": 7, "y": 2}, \
+{"id": 8, "size": 2, "x": 4, "y": 5}]', output)
+        os.remove("Square.json")
+
+    def test_load_to_file(self):
+        r = Square(3)
+        Square.save_to_file([r])
+        rectangles = Square.load_from_file()
+        self.assertIsInstance(rectangles[0], Square)
+        self.assertEqual(rectangles[0].size, 3)
+        os.remove("Square.json")
+
+        r = Square.load_from_file()
+        self.assertTrue(isinstance(r, list))
+        self.assertEqual(r, [])
 
 if __name__ == "__main__":
     unittest.main()
