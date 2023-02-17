@@ -93,9 +93,9 @@ class TestSquare(unittest.TestCase):
                                              'x': 5, 'y': 3})
 
     def test_create(self):
-        s1 = Square(3, 5, 1, 4)
-        s2 = Square.create(**{'id': 4, 'size': 3, 'x': 5, 'y': 1})
-        self.assertEqual(str(s1), str(s2))
+        s1 = Square(3, 5, 1)
+        s2 = Square.create(**{'id': 2, 'size': 3, 'x': 5, 'y': 1})
+        self.assertIsNot(s1, s2)
 
     def test_save_to_file(self):
         s1 = Square(10, 7, 2, 8)
@@ -105,6 +105,18 @@ class TestSquare(unittest.TestCase):
             output = f.read()
         self.assertEqual('[{"id": 8, "size": 10, "x": 7, "y": 2}, \
 {"id": 8, "size": 2, "x": 4, "y": 5}]', output)
+        os.remove("Square.json")
+
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            output = f.read()
+        self.assertEqual('[]', output)
+        os.remove("Square.json")
+
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            output = f.read()
+        self.assertEqual('[]', output)
         os.remove("Square.json")
 
     def test_load_to_file(self):

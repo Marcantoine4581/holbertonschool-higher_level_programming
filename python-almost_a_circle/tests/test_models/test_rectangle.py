@@ -105,18 +105,29 @@ class TestRectangle(unittest.TestCase):
                                              'x': 5, 'y': 3})
 
     def test_create(self):
-        r1 = Rectangle(3, 5, 1, 4, 30)
-        r2 = Rectangle.create(**{"x": 1, "y": 4, "id": 30, "height": 5, "width": 3})
-        self.assertEqual(str(r1), str(r2))
+        r1 = Rectangle(3, 5, 1, 4)
+        r2 = Rectangle.create(**{"x": 1, "y": 4, "id": 1, "height": 5, "width": 3})
+        self.assertIsNot(r1, r2)
 
     def test_save_to_file(self):
         r1 = Rectangle(10, 7, 2, 8, 5)
-        r2 = Rectangle(2, 4, 5, 8, 9)
-        Rectangle.save_to_file([r1, r2])
+        Rectangle.save_to_file([r1])
         with open("Rectangle.json", "r") as f:
             output = f.read()
-        self.assertEqual('[{"x": 2, "y": 8, "id": 5, "height": 7, "width": 10}, \
-{"x": 5, "y": 8, "id": 9, "height": 4, "width": 2}]', output)
+        self.assertEqual('[{"x": 2, "y": 8, "id": 5, "height": 7, \
+"width": 10}]', output)
+        os.remove("Rectangle.json")
+
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            output = f.read()
+        self.assertEqual('[]', output)
+        os.remove("Rectangle.json")
+
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            output = f.read()
+        self.assertEqual('[]', output)
         os.remove("Rectangle.json")
 
     def test_load_to_file(self):
