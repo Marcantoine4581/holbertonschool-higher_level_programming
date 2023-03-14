@@ -4,4 +4,8 @@
 -- Not allowed to use the JOIN keyword
 SELECT id, name
 FROM cities
-where state_id = 1;
+where state_id IN (
+	SELECT id
+	FROM states
+	WHERE name = "California"
+);
