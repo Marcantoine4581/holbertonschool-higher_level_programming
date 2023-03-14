@@ -4,7 +4,7 @@
 --	Results must be sorted in ascending order by the genre name
 --	Only one SELECT statement
 SELECT tg.name
-FROM tv_genres as tg
+FROM tv_genres AS tg
 INNER JOIN tv_show_genres AS tsg
 ON tg.id = tsg.genre_id
 INNER JOIN tv_shows AS ts
