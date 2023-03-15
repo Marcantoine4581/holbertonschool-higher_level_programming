@@ -19,3 +19,6 @@ if __name__ == "__main__":
                 ORDER BY cities.id")
     cities = cursor.fetchall()
     print(", ".join([city[2] for city in cities if city[4] == statename]))
+
+    cursor.close()
+    connection.close()
