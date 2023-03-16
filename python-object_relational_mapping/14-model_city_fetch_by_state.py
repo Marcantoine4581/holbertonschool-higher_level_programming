@@ -25,5 +25,5 @@ if __name__ == "__main__":
             filter(State.id == City.state_id).\
             order_by(City.id):
         print("{}: ({}) {}".format(s.name, c.id, c.name))
-    
+
     session.close()
