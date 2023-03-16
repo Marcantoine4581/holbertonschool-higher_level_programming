@@ -21,7 +21,7 @@ if __name__ == "__main__":
     session = Session()
 
     state = session.query(State).order_by(State.id)\
-            .filter(State.name == state_name).first()
+        .filter(State.name == state_name).first()
     if state is None:
         print("Not found")
     else:
