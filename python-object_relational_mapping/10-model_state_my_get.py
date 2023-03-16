@@ -20,10 +20,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State).order_by(State.id)\
-            .filter(State.name == state_name):
-        if state is None:
-            print("Not found")
-        else:
-            print("{}".format(state.id))
+    state = session.query(State).order_by(State.id)\
+            .filter(State.name == state_name).first()
+    if state is None:
+        print("Not found")
+    else:
+        print("{}".format(state.id))
     session.close()
