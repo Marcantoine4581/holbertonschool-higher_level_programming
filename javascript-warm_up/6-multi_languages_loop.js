@@ -1,11 +1,11 @@
 #!/usr/bin/node
 
-list = [
+const list = [
   'C is fun',
   'Python is cool',
   'JavaScript is amazing'
 ];
 
-for (let str of list) {
-  console.log(str)
+for (const str of list) {
+  console.log(str);
 }
