@@ -4,6 +4,10 @@ if (process.argv.length <= 3) {
 } else {
   const list = process.argv;
   const allNum = list.slice(2, process.argv.lenght);
-  const sortedNum = allNum.sort();
+  const convertNum = allNum.map(Number);
+  const sortedNum = convertNum.sort(function (a, b) {
+    return a - b;
+  });
+  console.log(sortedNum);
   console.log(sortedNum[allNum.length - 2]);
 }
