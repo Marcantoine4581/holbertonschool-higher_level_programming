@@ -7,6 +7,5 @@ if (process.argv.length <= 3) {
   const sortedNum = allNum.sort(function (a, b) {
     return a - b;
   });
-  console.log(sortedNum);
   console.log(sortedNum[allNum.length - 2]);
 }
