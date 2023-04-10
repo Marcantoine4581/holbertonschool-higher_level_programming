@@ -11,5 +11,5 @@ if (number) {
     console.log(str);
   }
 } else {
-  console.log('Missing number of occurrences');
+  console.log('Missing size');
 }
