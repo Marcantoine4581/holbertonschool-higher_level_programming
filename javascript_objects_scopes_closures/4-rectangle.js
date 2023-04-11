@@ -8,11 +8,11 @@ class Rectangle {
     }
   }
 
-  print () {
+  print (char = 'X') {
     for (let i = 0; i < this.height; i++) {
       let str = '';
       for (let i = 0; i < this.width; i++) {
-        str += 'X';
+        str += char;
       }
       console.log(str);
     }
